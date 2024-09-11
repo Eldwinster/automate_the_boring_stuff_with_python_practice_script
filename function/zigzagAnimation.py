@@ -1,33 +1,35 @@
 #!/usr/bin/env python
+# TODO problème de gestion droite, gauche
 import random, time, sys
 
-a = "*"
+SYMBOL = "*"
 i = 0
 k = 76
 x = " "
-t = 0.1
-m = True
+timeToSleep = 0.1
+directionState = True
+
 def block():
-    print(a * 85)
+    print(SYMBOL * 85)
 
 try:
     block()
     while True:
-        if m:
-            print(a, x * i, a * 8, sep='')
-            time.sleep(t)
+        if directionState:
+            print(SYMBOL, x * i, SYMBOL * 8, sep='')
+            time.sleep(timeToSleep)
             i += 2
             k -= 2
             if i == 76:
                 block()
-                m = False
-        else:
-            print(x * i, a * 8, x * k, a, sep='')
-            time.sleep(t)
+                directionState = False
+        elif directionState == False:
+            print(x * i, SYMBOL * 8, x * k, SYMBOL, sep='')
+            time.sleep(timeToSleep)
             i -= 2
             k += 2
             if i == 1:
                 block()
-                m = True
+                directionState = True
 except KeyboardInterrupt:
     sys.exit()

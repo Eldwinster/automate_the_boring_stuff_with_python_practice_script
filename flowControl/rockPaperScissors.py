@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# TODO refait la partie resultat en définissant rock > scissors > paper > rock
 import random, sys
 COMPUTER_NAME = "0x0"
 ROCK = "r"
